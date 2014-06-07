@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PPMTHCollectionView.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <PPMTHCollectionViewDelegate, PPMTHCollectionViewDataSource>
+
+@property (nonatomic, strong) PPMTHCollectionView *mainView;
 
 @end

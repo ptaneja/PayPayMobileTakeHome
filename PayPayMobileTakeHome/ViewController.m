@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "PPMTHPosterImageViewController.h"
 
 @interface ViewController ()
 
@@ -17,13 +18,30 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    
+    CGRect aRect = [[UIScreen mainScreen] bounds];
+    aRect.origin.y = aRect.origin.y + 50;
+    
+    self.mainView = [[PPMTHCollectionView alloc] initWithFrame:aRect andContentView:self.view];
+    self.mainView.delegate = self;
+    [self.view addSubview:[self titleLabel]];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (UILabel *)titleLabel {
+    UILabel *aLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 50)];
+    aLabel.textAlignment = NSTextAlignmentCenter;
+    [aLabel setText:@"Your Photos"];
+    return aLabel;
+}
+
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemWithImage:(UIImage *)iImage {
+    PPMTHPosterImageViewController *posterImageViewController = [[PPMTHPosterImageViewController alloc] initWithNibName:@"PPMTHPosterImageViewController" bundle:nil];
+    posterImageViewController.posterImage = iImage;
+    [self presentViewController:posterImageViewController animated:YES completion:nil];
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
 }
 
 @end
