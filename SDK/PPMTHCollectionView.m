@@ -52,7 +52,6 @@ static NSString *cellIdentifier = @"Cell";
             
             UICollectionViewFlowLayout *layout=[[UICollectionViewFlowLayout alloc] init];
             aBlock.collectionView = [[UICollectionView alloc] initWithFrame:iFrame collectionViewLayout:layout];
-            aBlock.collectionView.backgroundColor = [UIColor clearColor];
             [aBlock.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:cellIdentifier];
             aBlock.collectionView.delegate = aBlock;
             aBlock.collectionView.dataSource = aBlock;
@@ -96,14 +95,6 @@ static NSString *cellIdentifier = @"Cell";
         collectionViewCell = [self.dataSource collectionView:collectionView cellForItemAtIndexPath:indexPath];
     } else {
         collectionViewCell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
-        
-        for (UIView *aView in collectionView.subviews) {
-            if ([aView isKindOfClass:[UIImageView class]]) {
-                UIImageView *anImageView = (UIImageView *)aView;
-                anImageView.image = nil;
-                [aView removeFromSuperview];
-            }
-        }
         
         PPMTHImageData *imageData = [self.data.items objectAtIndex:indexPath.row];
         
@@ -164,7 +155,7 @@ static NSString *cellIdentifier = @"Cell";
     return CGSizeMake(100, 100);
 }
 
-- (void) removeNaughtyLingeringCells {
+- (void) clearCells {
     
     NSArray *visibleCells = self.collectionView.visibleCells;
     
@@ -187,12 +178,12 @@ static NSString *cellIdentifier = @"Cell";
 
 - (void) scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
     if (!decelerate) {
-        [self removeNaughtyLingeringCells];
+        [self clearCells];
     }
 }
 
 - (void) scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    [self removeNaughtyLingeringCells];
+    [self clearCells];
 }
 
 @end
