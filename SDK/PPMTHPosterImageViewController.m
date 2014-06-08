@@ -26,9 +26,36 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    if (self.URL) {
+        [self downloadImageWithURL:self.URL completionBlock:^(BOOL succeeded, UIImage *image) {
+            __weak PPMTHPosterImageViewController *aBlock = self;
+            
+            if (image) {
+                aBlock.imageView.image = image;
+            }
+        }];
+    } else {
     self.imageView.image = self.posterImage;
     self.date.text = [NSString stringWithFormat:@"Date: %@", [self.pictureDate description]];
     self.location.text = [NSString stringWithFormat:@"Location: %@", self.pictureLocation];
+    }
+}
+
+- (void)downloadImageWithURL:(NSString *)url completionBlock:(void (^)(BOOL succeeded, UIImage *image))completionBlock
+{
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
+    [NSURLConnection sendAsynchronousRequest:request
+                                       queue:[NSOperationQueue mainQueue]
+                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+                               if ( !error )
+                               {
+                                   UIImage *image = [[UIImage alloc] initWithData:data];
+                                   completionBlock(YES,image);
+                               } else{
+                                   completionBlock(NO,nil);
+                               }
+                           }];
 }
 
 - (IBAction)backButton:(id)sender {

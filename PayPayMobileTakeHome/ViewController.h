@@ -11,6 +11,11 @@
 
 @interface ViewController : UIViewController <PPMTHCollectionViewDelegate, PPMTHCollectionViewDataSource>
 
-@property (nonatomic, strong) PPMTHCollectionView *mainView;
+@property (nonatomic, strong) PPMTHCollectionView *photosView;
+@property (nonatomic, strong) PPMTHCollectionView *cloudview;
+
+@property (nonatomic, strong) IBOutlet UILabel *label;
+@property (nonatomic, strong) IBOutlet UISegmentedControl *segmentControl;
+-(IBAction)segmentAction:(id)sender;
 
 @end

@@ -16,12 +16,28 @@
 @property (nonatomic, strong) PPMTHCollectionData *data;
 @property (nonatomic, strong) NSMutableArray *tempAssets;
 @property (nonatomic, strong) ALAssetsLibrary *assetLibrary;
+@property (nonatomic, strong) UILabel *noDataLabel;
 
 @end
 
 @implementation PPMTHCollectionView 
 
 static NSString *cellIdentifier = @"Cell";
+
+- (id)initWithImagesFromURLs:(NSMutableArray *)iURLs andContentView:(UIView *)iContentView andFrame:(CGRect)iFrame {
+    if (self = [super init]) {
+        self.data = [[PPMTHCollectionData alloc] init];
+        self.data.imageURLs = iURLs;
+        
+        UICollectionViewFlowLayout *layout=[[UICollectionViewFlowLayout alloc] init];
+        self.collectionView = [[UICollectionView alloc] initWithFrame:iFrame collectionViewLayout:layout];
+        [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:cellIdentifier];
+        self.collectionView.delegate = self;
+        self.collectionView.dataSource = self;
+        [iContentView addSubview:self.collectionView];
+    }
+    return self;
+}
 
 - (id)initWithFrame:(CGRect)iFrame andContentView:(UIView *)iContentView
 {
@@ -56,8 +72,16 @@ static NSString *cellIdentifier = @"Cell";
             aBlock.collectionView.delegate = aBlock;
             aBlock.collectionView.dataSource = aBlock;
             [iContentView addSubview:aBlock.collectionView];
+            [self refreshView];
             
-            [aBlock.collectionView reloadData];
+            if (aBlock.data.items.count == 0) {
+                self.noDataLabel = [[UILabel alloc] initWithFrame:iFrame];
+                [self.noDataLabel setTextAlignment:NSTextAlignmentCenter];
+                [self.noDataLabel setBackgroundColor:[UIColor grayColor]];
+                [self.noDataLabel setText:@"No Photos"];
+                [iContentView addSubview:self.noDataLabel];
+            }
+            
         } failureBlock:^(NSError *error) {
             NSLog(@"Error loading images %@", error);
         }];
@@ -77,40 +101,68 @@ static NSString *cellIdentifier = @"Cell";
     return self;
 }
 
+- (void)refreshView {
+    if (self.data.imageURLs.count > 0 || self.data.items.count > 0) {
+        [self.noDataLabel setHidden:NO];
+    }
+    [self.collectionView reloadData];
+}
+
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     NSInteger numberOfItemsInSection = 0;
     
     if ([self.dataSource respondsToSelector:@selector(collectionView:numberOfItemsInSection:)]) {
         numberOfItemsInSection = [self.dataSource collectionView:collectionView numberOfItemsInSection:section];
     } else {
-        numberOfItemsInSection = [self.data.items count];
+        if (self.data.imageURLs) {
+            numberOfItemsInSection = [self.data.imageURLs count];
+        } else {
+            numberOfItemsInSection = [self.data.items count];
+        }
     }
     return numberOfItemsInSection;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *collectionViewCell = nil;
+    __block UICollectionViewCell *collectionViewCell = nil;
     
     if ([self.dataSource respondsToSelector:@selector(collectionView:numberOfItemsInSection:)]) {
         collectionViewCell = [self.dataSource collectionView:collectionView cellForItemAtIndexPath:indexPath];
     } else {
-        collectionViewCell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
-        
-        PPMTHImageData *imageData = [self.data.items objectAtIndex:indexPath.row];
-        
-        [self.assetLibrary assetForURL:imageData.url resultBlock:^(ALAsset *asset) {
-            ALAssetRepresentation *assetRepresentation = asset.defaultRepresentation;
-            dispatch_async(dispatch_get_main_queue(), ^{
-                UIImage *image = [UIImage imageWithCGImage:[asset thumbnail] scale:1 orientation:(UIImageOrientation)assetRepresentation.orientation];
-                
-                UIImageView *anImageView = [[UIImageView alloc] initWithImage:image];
-                [anImageView setFrame:CGRectMake(0, 0, 100, 100)];
-                anImageView.contentMode = UIViewContentModeScaleToFill;
-                [collectionViewCell.contentView addSubview:anImageView];
-            });
-        } failureBlock:^(NSError *error) {
-            NSLog(@"Failed to get Image");
-        }];
+        if (self.data.imageURLs) {
+            collectionViewCell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
+
+            [self downloadImageWithURL:[self.data.imageURLs objectAtIndex:indexPath.row] completionBlock:^(BOOL succeeded, UIImage *image) {
+                if (succeeded) {
+                    UIImageView *anImageView = [[UIImageView alloc] initWithImage:image];
+                    [anImageView setFrame:CGRectMake(0, 0, 100, 100)];
+                    anImageView.clipsToBounds = YES;
+                    anImageView.layer.cornerRadius = 5.0;
+                    anImageView.contentMode = UIViewContentModeScaleToFill;
+                    [collectionViewCell.contentView addSubview:anImageView];
+                }
+            }];
+        } else {
+            collectionViewCell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
+            
+            PPMTHImageData *imageData = [self.data.items objectAtIndex:indexPath.row];
+            
+            [self.assetLibrary assetForURL:imageData.url resultBlock:^(ALAsset *asset) {
+                ALAssetRepresentation *assetRepresentation = asset.defaultRepresentation;
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    UIImage *image = [UIImage imageWithCGImage:[asset thumbnail] scale:1 orientation:(UIImageOrientation)assetRepresentation.orientation];
+                    
+                    UIImageView *anImageView = [[UIImageView alloc] initWithImage:image];
+                    [anImageView setFrame:CGRectMake(0, 0, 100, 100)];
+                    anImageView.clipsToBounds = YES;
+                    anImageView.layer.cornerRadius = 5.0;
+                    anImageView.contentMode = UIViewContentModeScaleToFill;
+                    [collectionViewCell.contentView addSubview:anImageView];
+                });
+            } failureBlock:^(NSError *error) {
+                NSLog(@"Failed to get Image");
+            }];
+        }
     }
     return collectionViewCell;
 }
@@ -128,7 +180,9 @@ static NSString *cellIdentifier = @"Cell";
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    if ([self.delegate respondsToSelector:@selector(collectionView:didSelectItemWithImage:date:location:)]) {
+    if (self.data.imageURLs && [self.delegate respondsToSelector:@selector(collectionView:didSelectItemWithImageURL:)]) {
+        [self.delegate collectionView:collectionView didSelectItemWithImageURL:[self.data.imageURLs objectAtIndex:indexPath.row]];
+    } else if ([self.delegate respondsToSelector:@selector(collectionView:didSelectItemWithImage:date:location:)]) {
         
         PPMTHImageData *imageData = [self.data.items objectAtIndex:indexPath.row];
         
@@ -153,6 +207,22 @@ static NSString *cellIdentifier = @"Cell";
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     return CGSizeMake(100, 100);
+}
+
+- (void)downloadImageWithURL:(NSString *)url completionBlock:(void (^)(BOOL succeeded, UIImage *image))completionBlock
+{
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
+    [NSURLConnection sendAsynchronousRequest:request
+                                       queue:[NSOperationQueue mainQueue]
+                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+                               if ( !error )
+                               {
+                                   UIImage *image = [[UIImage alloc] initWithData:data];
+                                   completionBlock(YES,image);
+                               } else{
+                                   completionBlock(NO,nil);
+                               }
+                           }];
 }
 
 - (void) clearCells {

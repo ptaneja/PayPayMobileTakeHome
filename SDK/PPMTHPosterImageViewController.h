@@ -18,6 +18,7 @@
 @property (nonatomic, strong) IBOutlet UILabel *location;
 @property (nonatomic, strong) NSDate *pictureDate;
 @property (nonatomic, strong) NSString *pictureLocation;
+@property (nonatomic, strong) NSString *URL;
 
 - (IBAction)backButton:(id)sender;
 

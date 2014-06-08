@@ -11,6 +11,7 @@
 @interface PPMTHCollectionData : NSObject
 
 @property (nonatomic, strong) NSString *dataPath;
+@property (nonatomic, strong) NSMutableArray *imageURLs;
 @property (nonatomic, strong) NSMutableArray *items;
 - (void)prepareItems:(NSArray *)iItems;
 
