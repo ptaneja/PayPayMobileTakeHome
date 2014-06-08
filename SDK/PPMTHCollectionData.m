@@ -21,7 +21,9 @@
     
     for (ALAsset *anImageData in iItems) {
         PPMTHImageData *iImageData = [[PPMTHImageData alloc] init];
-        iImageData.url = [[anImageData valueForProperty:ALAssetPropertyURLs] objectForKey:[[anImageData valueForProperty:ALAssetPropertyRepresentations] objectAtIndex:0]];
+        iImageData.url = [[anImageData valueForProperty:ALAssetPropertyURLs] objectForKey:[[anImageData valueForProperty:ALAssetPropertyRepresentations] objectAtIndex:0]];        
+        iImageData.date = [anImageData valueForProperty:ALAssetPropertyDate];
+        iImageData.location = [anImageData valueForProperty:ALAssetPropertyLocation];
         iImageData.fullData = anImageData;
         [self.items addObject:iImageData];
 

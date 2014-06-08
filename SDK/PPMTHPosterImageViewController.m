@@ -27,6 +27,8 @@
 {
     [super viewDidLoad];
     self.imageView.image = self.posterImage;
+    self.date.text = [NSString stringWithFormat:@"Date: %@", [self.pictureDate description]];
+    self.location.text = [NSString stringWithFormat:@"Location: %@", self.pictureLocation];
 }
 
 - (IBAction)backButton:(id)sender {

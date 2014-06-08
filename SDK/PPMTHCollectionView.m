@@ -128,7 +128,7 @@ static NSString *cellIdentifier = @"Cell";
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    if ([self.delegate respondsToSelector:@selector(collectionView:didSelectItemWithImage:)]) {
+    if ([self.delegate respondsToSelector:@selector(collectionView:didSelectItemWithImage:date:location:)]) {
         
         PPMTHImageData *imageData = [self.data.items objectAtIndex:indexPath.row];
         
@@ -137,7 +137,7 @@ static NSString *cellIdentifier = @"Cell";
             ALAssetRepresentation *assetRepresentation = asset.defaultRepresentation;
             dispatch_async(dispatch_get_main_queue(), ^{
                 UIImage *image = [UIImage imageWithCGImage:assetRepresentation.fullResolutionImage scale:assetRepresentation.scale orientation:(UIImageOrientation)assetRepresentation.orientation];
-                [self.delegate collectionView:collectionView didSelectItemWithImage:image];
+                [self.delegate collectionView:collectionView didSelectItemWithImage:image date:imageData.date location:imageData.location];
             });
         } failureBlock:^(NSError *error) {
             NSLog(@"Failed to get Image");

@@ -13,5 +13,8 @@
 
 @property (nonatomic, strong) ALAsset *fullData;
 @property (nonatomic, strong) NSURL *url;
+@property (nonatomic, strong) NSDate *date;
+@property (nonatomic, strong) NSString *title;
+@property (nonatomic, strong) NSString *location;
 
 @end

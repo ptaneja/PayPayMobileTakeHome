@@ -18,7 +18,7 @@
 @protocol PPMTHCollectionViewDelegate <NSObject>
 @optional
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath;
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemWithImage:(UIImage *)iImage;
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemWithImage:(UIImage *)iImage  date:(NSDate *)iDate location:(NSString *)iLocation;
 - (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath;
 @end
 

@@ -14,8 +14,10 @@
 @property (nonatomic, strong) UIImage *posterImage;
 @property (nonatomic, strong) IBOutlet UIButton *backButton;
 @property (nonatomic, strong) IBOutlet UILabel *pictureTitle;
-@property (nonatomic, strong) IBOutlet NSString *date;
-@property (nonatomic, strong) IBOutlet NSString *location;
+@property (nonatomic, strong) IBOutlet UILabel *date;
+@property (nonatomic, strong) IBOutlet UILabel *location;
+@property (nonatomic, strong) NSDate *pictureDate;
+@property (nonatomic, strong) NSString *pictureLocation;
 
 - (IBAction)backButton:(id)sender;
 

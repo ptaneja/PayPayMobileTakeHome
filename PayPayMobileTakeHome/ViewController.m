@@ -35,9 +35,11 @@
 }
 
 
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemWithImage:(UIImage *)iImage {
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemWithImage:(UIImage *)iImage  date:(NSDate *)iDate location:(NSString *)iLocation {
     PPMTHPosterImageViewController *posterImageViewController = [[PPMTHPosterImageViewController alloc] initWithNibName:@"PPMTHPosterImageViewController" bundle:nil];
     posterImageViewController.posterImage = iImage;
+    posterImageViewController.pictureDate = iDate;
+    posterImageViewController.pictureLocation = iLocation;
     [self presentViewController:posterImageViewController animated:YES completion:nil];
 }
 
