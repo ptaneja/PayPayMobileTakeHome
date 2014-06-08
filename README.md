@@ -1,6 +1,6 @@
 PayPayMobileTakeHome
 ====================
-This app is developed to demonstrate the Photo viewing functionality. This retrieves the picture from the device gallery
+This app is developed to demonstrate the Photo viewing functionality and photos from web server. This retrieves the picture from the device gallery and shows it under Photos sections and photos from web under Cloud section
 and shows it in Collection View. On tap of any grid it opens it in the Poster view.
 
 This can be achieved by including the classes under the SDK folder.
