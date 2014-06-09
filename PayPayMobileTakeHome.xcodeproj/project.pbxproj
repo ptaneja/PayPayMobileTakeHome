@@ -11,7 +11,7 @@
 		6A46D3F119425ACB00EB9DDF /* backbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A46D3F019425ACB00EB9DDF /* backbutton.png */; };
 		6A46D3F5194263B600EB9DDF /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A46D3F4194263B600EB9DDF /* AssetsLibrary.framework */; };
 		6A55D891194560A400D8AB7D /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A55D890194560A400D8AB7D /* CoreData.framework */; };
-		6A55DABF19456DDD00D8AB7D /* libPPMTHLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A55DABE19456DDD00D8AB7D /* libPPMTHLibrary.a */; };
+		6A55DAC11945700D00D8AB7D /* libPPMTHLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A55DAC01945700D00D8AB7D /* libPPMTHLibrary.a */; };
 		6AC65FC119422D2100578C28 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AC65FC019422D2100578C28 /* Foundation.framework */; };
 		6AC65FC319422D2100578C28 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AC65FC219422D2100578C28 /* CoreGraphics.framework */; };
 		6AC65FC519422D2100578C28 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AC65FC419422D2100578C28 /* UIKit.framework */; };
@@ -51,7 +51,7 @@
 		6A55DABB19456DDD00D8AB7D /* PPMTHImageData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMTHImageData.h; sourceTree = "<group>"; };
 		6A55DABC19456DDD00D8AB7D /* PPMTHLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMTHLibrary.h; sourceTree = "<group>"; };
 		6A55DABD19456DDD00D8AB7D /* PPMTHPosterImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMTHPosterImageViewController.h; sourceTree = "<group>"; };
-		6A55DABE19456DDD00D8AB7D /* libPPMTHLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libPPMTHLibrary.a; sourceTree = SOURCE_ROOT; };
+		6A55DAC01945700D00D8AB7D /* libPPMTHLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libPPMTHLibrary.a; sourceTree = "<group>"; };
 		6AC65FBD19422D2100578C28 /* PayPayMobileTakeHome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PayPayMobileTakeHome.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AC65FC019422D2100578C28 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6AC65FC219422D2100578C28 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -85,7 +85,7 @@
 				6AC65FF91942329400578C28 /* AddressBook.framework in Frameworks */,
 				6AC65FFA1942329400578C28 /* AddressBookUI.framework in Frameworks */,
 				6AC65FC319422D2100578C28 /* CoreGraphics.framework in Frameworks */,
-				6A55DABF19456DDD00D8AB7D /* libPPMTHLibrary.a in Frameworks */,
+				6A55DAC11945700D00D8AB7D /* libPPMTHLibrary.a in Frameworks */,
 				6AC65FC519422D2100578C28 /* UIKit.framework in Frameworks */,
 				6AC65FC119422D2100578C28 /* Foundation.framework in Frameworks */,
 			);
@@ -115,6 +115,7 @@
 		6A55DAB719456DDD00D8AB7D /* PPMTHLibrary */ = {
 			isa = PBXGroup;
 			children = (
+				6A55DAC01945700D00D8AB7D /* libPPMTHLibrary.a */,
 				6A55DAB819456DDD00D8AB7D /* PPMTHCollectionData.h */,
 				6A55DAB919456DDD00D8AB7D /* PPMTHCollectionView.h */,
 				6A55DABA19456DDD00D8AB7D /* PPMTHFramework.h */,
@@ -163,7 +164,6 @@
 			isa = PBXGroup;
 			children = (
 				6A55DAB619456DDD00D8AB7D /* include */,
-				6A55DABE19456DDD00D8AB7D /* libPPMTHLibrary.a */,
 				6AC65FCF19422D2100578C28 /* AppDelegate.h */,
 				6AC65FD019422D2100578C28 /* AppDelegate.m */,
 				6AC65FD219422D2100578C28 /* Main.storyboard */,
@@ -454,6 +454,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/include/PPMTHLibrary",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -471,6 +472,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/include/PPMTHLibrary",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
