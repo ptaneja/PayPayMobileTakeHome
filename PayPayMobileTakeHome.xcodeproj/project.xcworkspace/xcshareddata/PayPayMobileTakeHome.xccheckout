@@ -17,6 +17,8 @@
 	<string>PayPayMobileTakeHome.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
+		<key>AF3BBE28-288C-471D-A932-301058CD23FE</key>
+		<string>../../PPMTHFramework</string>
 		<key>D7B5C935-AFF8-4272-8E8E-3578F7C00549</key>
 		<string>../..</string>
 	</dict>
@@ -35,6 +37,14 @@
 			<string>D7B5C935-AFF8-4272-8E8E-3578F7C00549</string>
 			<key>IDESourceControlWCCName</key>
 			<string>PayPayMobileTakeHome</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>AF3BBE28-288C-471D-A932-301058CD23FE</string>
+			<key>IDESourceControlWCCName</key>
+			<string>PPMTHFramework</string>
 		</dict>
 	</array>
 </dict>

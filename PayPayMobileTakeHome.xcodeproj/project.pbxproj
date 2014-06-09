@@ -7,14 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6A46D3DD19423D7A00EB9DDF /* PPMTHCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A46D3DC19423D7A00EB9DDF /* PPMTHCollectionView.m */; };
-		6A46D3E019423F7B00EB9DDF /* PPMTHCollectionData.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A46D3DF19423F7B00EB9DDF /* PPMTHCollectionData.m */; };
 		6A46D3E419424B6300EB9DDF /* image.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A46D3E319424B6300EB9DDF /* image.png */; };
-		6A46D3EE194259B500EB9DDF /* PPMTHPosterImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A46D3EC194259B500EB9DDF /* PPMTHPosterImageViewController.m */; };
-		6A46D3EF194259B500EB9DDF /* PPMTHPosterImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A46D3ED194259B500EB9DDF /* PPMTHPosterImageViewController.xib */; };
 		6A46D3F119425ACB00EB9DDF /* backbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A46D3F019425ACB00EB9DDF /* backbutton.png */; };
 		6A46D3F5194263B600EB9DDF /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A46D3F4194263B600EB9DDF /* AssetsLibrary.framework */; };
-		6A46D3F81942692A00EB9DDF /* PPMTHImageData.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A46D3F71942692A00EB9DDF /* PPMTHImageData.m */; };
+		6A55D891194560A400D8AB7D /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A55D890194560A400D8AB7D /* CoreData.framework */; };
+		6A55DABF19456DDD00D8AB7D /* libPPMTHLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A55DABE19456DDD00D8AB7D /* libPPMTHLibrary.a */; };
 		6AC65FC119422D2100578C28 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AC65FC019422D2100578C28 /* Foundation.framework */; };
 		6AC65FC319422D2100578C28 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AC65FC219422D2100578C28 /* CoreGraphics.framework */; };
 		6AC65FC519422D2100578C28 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AC65FC419422D2100578C28 /* UIKit.framework */; };
@@ -44,19 +41,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		6A46D3DB19423D7A00EB9DDF /* PPMTHCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPMTHCollectionView.h; path = SDK/PPMTHCollectionView.h; sourceTree = "<group>"; };
-		6A46D3DC19423D7A00EB9DDF /* PPMTHCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPMTHCollectionView.m; path = SDK/PPMTHCollectionView.m; sourceTree = "<group>"; };
-		6A46D3DE19423F7B00EB9DDF /* PPMTHCollectionData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPMTHCollectionData.h; path = SDK/PPMTHCollectionData.h; sourceTree = "<group>"; };
-		6A46D3DF19423F7B00EB9DDF /* PPMTHCollectionData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPMTHCollectionData.m; path = SDK/PPMTHCollectionData.m; sourceTree = "<group>"; };
 		6A46D3E319424B6300EB9DDF /* image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image.png; sourceTree = "<group>"; };
-		6A46D3E81942571F00EB9DDF /* PPMTHFramework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPMTHFramework.h; path = SDK/PPMTHFramework.h; sourceTree = "<group>"; };
-		6A46D3EB194259B500EB9DDF /* PPMTHPosterImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPMTHPosterImageViewController.h; path = SDK/PPMTHPosterImageViewController.h; sourceTree = "<group>"; };
-		6A46D3EC194259B500EB9DDF /* PPMTHPosterImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPMTHPosterImageViewController.m; path = SDK/PPMTHPosterImageViewController.m; sourceTree = "<group>"; };
-		6A46D3ED194259B500EB9DDF /* PPMTHPosterImageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PPMTHPosterImageViewController.xib; path = SDK/PPMTHPosterImageViewController.xib; sourceTree = "<group>"; };
 		6A46D3F019425ACB00EB9DDF /* backbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backbutton.png; sourceTree = "<group>"; };
 		6A46D3F4194263B600EB9DDF /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
-		6A46D3F61942692A00EB9DDF /* PPMTHImageData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPMTHImageData.h; path = SDK/PPMTHImageData.h; sourceTree = "<group>"; };
-		6A46D3F71942692A00EB9DDF /* PPMTHImageData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPMTHImageData.m; path = SDK/PPMTHImageData.m; sourceTree = "<group>"; };
+		6A55D890194560A400D8AB7D /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		6A55DAB819456DDD00D8AB7D /* PPMTHCollectionData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMTHCollectionData.h; sourceTree = "<group>"; };
+		6A55DAB919456DDD00D8AB7D /* PPMTHCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMTHCollectionView.h; sourceTree = "<group>"; };
+		6A55DABA19456DDD00D8AB7D /* PPMTHFramework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMTHFramework.h; sourceTree = "<group>"; };
+		6A55DABB19456DDD00D8AB7D /* PPMTHImageData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMTHImageData.h; sourceTree = "<group>"; };
+		6A55DABC19456DDD00D8AB7D /* PPMTHLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMTHLibrary.h; sourceTree = "<group>"; };
+		6A55DABD19456DDD00D8AB7D /* PPMTHPosterImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMTHPosterImageViewController.h; sourceTree = "<group>"; };
+		6A55DABE19456DDD00D8AB7D /* libPPMTHLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libPPMTHLibrary.a; sourceTree = SOURCE_ROOT; };
 		6AC65FBD19422D2100578C28 /* PayPayMobileTakeHome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PayPayMobileTakeHome.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AC65FC019422D2100578C28 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6AC65FC219422D2100578C28 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -85,10 +80,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A55D891194560A400D8AB7D /* CoreData.framework in Frameworks */,
 				6A46D3F5194263B600EB9DDF /* AssetsLibrary.framework in Frameworks */,
 				6AC65FF91942329400578C28 /* AddressBook.framework in Frameworks */,
 				6AC65FFA1942329400578C28 /* AddressBookUI.framework in Frameworks */,
 				6AC65FC319422D2100578C28 /* CoreGraphics.framework in Frameworks */,
+				6A55DABF19456DDD00D8AB7D /* libPPMTHLibrary.a in Frameworks */,
 				6AC65FC519422D2100578C28 /* UIKit.framework in Frameworks */,
 				6AC65FC119422D2100578C28 /* Foundation.framework in Frameworks */,
 			);
@@ -107,27 +104,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6A46D3DA19423B9E00EB9DDF /* SDK */ = {
+		6A55DAB619456DDD00D8AB7D /* include */ = {
 			isa = PBXGroup;
 			children = (
-				6A46D3DB19423D7A00EB9DDF /* PPMTHCollectionView.h */,
-				6A46D3DC19423D7A00EB9DDF /* PPMTHCollectionView.m */,
-				6A46D3DE19423F7B00EB9DDF /* PPMTHCollectionData.h */,
-				6A46D3DF19423F7B00EB9DDF /* PPMTHCollectionData.m */,
-				6A46D3EB194259B500EB9DDF /* PPMTHPosterImageViewController.h */,
-				6A46D3EC194259B500EB9DDF /* PPMTHPosterImageViewController.m */,
-				6A46D3ED194259B500EB9DDF /* PPMTHPosterImageViewController.xib */,
-				6A46D3E81942571F00EB9DDF /* PPMTHFramework.h */,
-				6A46D3F61942692A00EB9DDF /* PPMTHImageData.h */,
-				6A46D3F71942692A00EB9DDF /* PPMTHImageData.m */,
+				6A55DAB719456DDD00D8AB7D /* PPMTHLibrary */,
 			);
-			name = SDK;
+			path = include;
+			sourceTree = SOURCE_ROOT;
+		};
+		6A55DAB719456DDD00D8AB7D /* PPMTHLibrary */ = {
+			isa = PBXGroup;
+			children = (
+				6A55DAB819456DDD00D8AB7D /* PPMTHCollectionData.h */,
+				6A55DAB919456DDD00D8AB7D /* PPMTHCollectionView.h */,
+				6A55DABA19456DDD00D8AB7D /* PPMTHFramework.h */,
+				6A55DABB19456DDD00D8AB7D /* PPMTHImageData.h */,
+				6A55DABC19456DDD00D8AB7D /* PPMTHLibrary.h */,
+				6A55DABD19456DDD00D8AB7D /* PPMTHPosterImageViewController.h */,
+			);
+			path = PPMTHLibrary;
 			sourceTree = "<group>";
 		};
 		6AC65FB419422D2100578C28 = {
 			isa = PBXGroup;
 			children = (
-				6A46D3DA19423B9E00EB9DDF /* SDK */,
 				6AC65FC619422D2100578C28 /* PayPayMobileTakeHome */,
 				6AC65FE519422D2100578C28 /* PayPayMobileTakeHomeTests */,
 				6AC65FBF19422D2100578C28 /* Frameworks */,
@@ -147,6 +147,7 @@
 		6AC65FBF19422D2100578C28 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6A55D890194560A400D8AB7D /* CoreData.framework */,
 				6A46D3F4194263B600EB9DDF /* AssetsLibrary.framework */,
 				6AC65FF71942329400578C28 /* AddressBook.framework */,
 				6AC65FF81942329400578C28 /* AddressBookUI.framework */,
@@ -161,6 +162,8 @@
 		6AC65FC619422D2100578C28 /* PayPayMobileTakeHome */ = {
 			isa = PBXGroup;
 			children = (
+				6A55DAB619456DDD00D8AB7D /* include */,
+				6A55DABE19456DDD00D8AB7D /* libPPMTHLibrary.a */,
 				6AC65FCF19422D2100578C28 /* AppDelegate.h */,
 				6AC65FD019422D2100578C28 /* AppDelegate.m */,
 				6AC65FD219422D2100578C28 /* Main.storyboard */,
@@ -283,7 +286,6 @@
 				6AC65FD919422D2100578C28 /* Images.xcassets in Resources */,
 				6AC65FCB19422D2100578C28 /* InfoPlist.strings in Resources */,
 				6AC65FD419422D2100578C28 /* Main.storyboard in Resources */,
-				6A46D3EF194259B500EB9DDF /* PPMTHPosterImageViewController.xib in Resources */,
 				6A46D3E419424B6300EB9DDF /* image.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -303,10 +305,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6A46D3EE194259B500EB9DDF /* PPMTHPosterImageViewController.m in Sources */,
-				6A46D3DD19423D7A00EB9DDF /* PPMTHCollectionView.m in Sources */,
-				6A46D3E019423F7B00EB9DDF /* PPMTHCollectionData.m in Sources */,
-				6A46D3F81942692A00EB9DDF /* PPMTHImageData.m in Sources */,
 				6AC65FD719422D2100578C28 /* ViewController.m in Sources */,
 				6AC65FD119422D2100578C28 /* AppDelegate.m in Sources */,
 				6AC65FCD19422D2100578C28 /* main.m in Sources */,
@@ -377,6 +375,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -391,9 +390,16 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"./**",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LIBRARY_SEARCH_PATHS = "./**";
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
 		};
@@ -416,6 +422,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -423,8 +430,15 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"./**",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LIBRARY_SEARCH_PATHS = "./**";
 				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = "";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -437,6 +451,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PayPayMobileTakeHome/PayPayMobileTakeHome-Prefix.pch";
 				INFOPLIST_FILE = "PayPayMobileTakeHome/PayPayMobileTakeHome-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -450,6 +468,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PayPayMobileTakeHome/PayPayMobileTakeHome-Prefix.pch";
 				INFOPLIST_FILE = "PayPayMobileTakeHome/PayPayMobileTakeHome-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
